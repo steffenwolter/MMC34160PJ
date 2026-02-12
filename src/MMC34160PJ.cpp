@@ -113,7 +113,7 @@ float MMC34160PJ::getAngle(){
     float deg = 0;
 
     for (int i=0; i<3; i++) {
-        data[i] = 0.48828125 * (float)raw[i] - offset[0];
+        data[i] = 0.48828125 * (float)raw[i] - offset[i];
     }
     if (data[0] < 0) {
         if (data[1] > 0) {
@@ -161,5 +161,6 @@ uint8_t MMC34160PJ::writeRegister(uint8_t reg, uint8_t val){
   _wire->write(val);
   return _wire->endTransmission();
 }
+
 
 
